@@ -29,6 +29,7 @@
         this.$swipeTrigger = $('<div class="' + this.settings.swipeTriggerSelector.replace(".","") + '" />');
 
         this.menu = element;
+        this.$menu = $(element);
         this.$pageWrap = $(this.settings.pageWrapSelector);
         this.$menuBtn = $(this.settings.menuBtnSelector);
 
@@ -139,6 +140,8 @@
                     transform:   "translate3D(-250px, 0, 0)"
                 });
             }
+
+            this.$menu.trigger( 'ffrm:onTouchStart', e );
         },
         onTouchMove: function( e ) {
             var touchobj = e.originalEvent.changedTouches[0]; // reference first touch point for this event
@@ -184,12 +187,14 @@
                     transform:   "translate3D(" + (dist - 250) + "px, 0, 0)"
                 });
             }
+
+            this.$menu.trigger( 'ffrm:onTouchMove', e, dist );
         },
         onTouchEnd: function( e ) {
             var touchobj = e.originalEvent.changedTouches[0]; // reference first touch point for this event
             var time = this.endtime - this.starttime;
-            var distance = this.startx - touchobj.clientX;
-            var absDist = Math.abs(distance);
+            var dist = this.startx - touchobj.clientX;
+            var absDist = Math.abs(dist);
             var speed = (time / absDist ) / 10;
             speed = (speed > .5) ? .5 : speed;
 
@@ -200,8 +205,8 @@
 
             // close it
             if (this.isOpen) {
-                if (distance > 80 || distance == 0) {
-                    if( distance == 0) {
+                if (dist > 80 || dist == 0) {
+                    if( dist == 0) {
                         this.closeMenu( this.settings.menuSpeed, "ease-in");
                     } else {
                         this.closeMenu( speed );
@@ -219,6 +224,8 @@
                     this.setOverlayTransparency( 0 );
                 }
             }
+
+            this.$menu.trigger( 'ffrm:onTouchEnd', e, dist, speed );
         },
         setMenuTransition: function( time, easing ) {
             this.$pageWrap.add( this.menu ).css({
@@ -232,16 +239,16 @@
                 transitionTimingFunction: easing
             });
         },
-        setOverlayTransparency: function( distance ) {
+        setOverlayTransparency: function( dist ) {
 
-            if( this.isOpen && distance > 0 ) {
-                distance = 0;
+            if( this.isOpen && dist > 0 ) {
+                dist = 0;
             } else {
-                distance = Math.abs( distance );
+                dist = Math.abs( dist );
             }
 
-            distance = (distance > this.settings.menuWidth) ? this.settings.menuWidth : distance;
-            var opacity = (this.settings.overlayOpacity / ( this.settings.menuWidth / distance ));
+            dist = (dist > this.settings.menuWidth) ? this.settings.menuWidth : dist;
+            var opacity = (this.settings.overlayOpacity / ( this.settings.menuWidth / dist ));
 
             if( this.isOpen ) {
                 opacity = this.settings.overlayOpacity - opacity;
