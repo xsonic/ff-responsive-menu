@@ -14,6 +14,7 @@
             overlayOpacity:         0.8
         };
 
+
     function Plugin ( element, options ) {
 
         this.settings = $.extend( {}, defaults, options );
