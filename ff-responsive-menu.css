@@ -1,90 +1,91 @@
 html {
-    overflow-x: hidden;
-    position: relative;
+  overflow-x: hidden;
+  position: relative;
 }
 body{
-     background: #ccc;
-     overflow-x: hidden;
-     position: relative;
+  background: #ccc;
+  overflow-x: hidden;
+  position: relative;
 }
 .hamburger {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
 }
 
 
 
 
 #ffrm-menu {
-    width: 250px;
-    background: red;
+  width: 250px;
+  background: red;
 }
 
 
 
 .ffrm-page-wrapper {
-    position: relative;
+  position: relative;
 }
 #ffrm-menu {
-    position: fixed;
-    overflow-y: auto;
-    height: 100%;
-    z-index: 1;
+  position: fixed;
+  overflow-y: auto;
+  height: 100%;
+  z-index: 2;
 
-    transform: translate3D(-250px, 0, 0);
+  transform: translate3D(-250px, 0, 0);
 }
 
 
 .ffrm-page-wrapper {
-    -webkit-transition-property: transform;
-    -moz-transition-property: transform;
-    transition-property: transform;
+  -webkit-transition-property: transform;
+  -moz-transition-property: transform;
+  transition-property: transform;
 
-    transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
 }
 body.ffrm-open:not(.ffrm-is-moving) .ffrm-page-wrapper {
-    transform: translate3D(250px, 0, 0) !important;
+  transform: translate3D(250px, 0, 0) !important;
 }
 body.ffrm-closed:not(.ffrm-is-moving) .ffrm-page-wrapper,
 body.ffrm-open:not(.ffrm-is-moving) #ffrm-menu {
-    transform: translate3D(0, 0, 0) !important;
+  transform: translate3D(0, 0, 0) !important;
 }
 body.ffrm-closed:not(.ffrm-is-moving) #ffrm-menu {
-    transform: translate3D(-250px, 0, 0) !important;
+  transform: translate3D(-250px, 0, 0) !important;
 }
 .ffrm-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: -1;
-    opacity: 0;
-    -webkit-transition: opacity .15s ease-in;
-    -moz-transition: opacity .15s ease-in;
-    transition: opacity .15s ease-in;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: opacity .15s ease-in;
+  -moz-transition: opacity .15s ease-in;
+  transition: opacity .15s ease-in;
 }
 body.ffrm-is-moving .ffrm-overlay {
-    z-index: 1;
+  z-index: 1;
 }
 .ffrm-open .ffrm-overlay {
-    z-index: 1;
-    opacity: 1;
+  z-index: 1;
+  opacity: 1;
 }
 .ffrm-swipe-trigger {
-    position: fixed;
-    width: 30px;
-    height: 100%;
-    left: 0;
-    top: 0;
-    /*background: rgba(255,0,0,0.5);*/
-    z-index: 9;
+  position: fixed;
+  width: 30px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(255,0,0,0.5);
+  z-index: 9;
 }
 body.ffrm-open .ffrm-swipe-trigger {
-    transform: translate3D(250px, 0, 0);
-    width: 1000px;
+  transform: translate3D(250px, 0, 0);
+  width: 10000px;
 }
 
 
