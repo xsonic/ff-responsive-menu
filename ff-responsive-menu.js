@@ -59,7 +59,6 @@
             });
             $(document).on('click', this.settings.swipeTriggerSelector, function( e ) {
                 e.preventDefault();
-                console.log('click overlay')
                 self.setMenuTransition( self.settings.menuSpeed, "ease-in" );
             });
             $(document).on('touchstart', this.settings.swipeTriggerSelector, function( e ) {
@@ -89,8 +88,6 @@
         closeMenu: function( speed, easing ) {
             var self = this;
 
-            console.log('close IIIT')
-
             this.$body.toggleClass( "ffrm-open ffrm-closed" );
             this.isOpen = false;
             this.setOverlayTransition( speed, "ease-out" );
@@ -105,10 +102,8 @@
         onMenuBtnClick: function( e ) {
             if( !this.$menuBtn.hasClass( this.settings.menuBtnActiveClass ) ) {
                 this.openMenu( this.settings.menuSpeed, "ease-in");
-                console.log('1')
             } else if( $(this.settings.menuBtnSelector).hasClass( this.settings.menuBtnActiveClass ) ) {
                 this.closeMenu( this.settings.menuSpeed, "ease-in");
-                console.log('2')
             }
             // set base Transition time in case it got already changed
             this.setMenuTransition( this.settings.menuSpeed, "ease-in" );
@@ -150,25 +145,9 @@
 
             // close it
             if( this.isOpen ) {
-                //dist = dist + this.startx;
-                //console.log( "dist" )
-                //console.log( dist )
-                //dist = Math.abs( this.startx - dist - 250 );
-                //
-                //console.log( ( this.startx - dist - 250 ) )
-                //console.log( dist )
-                //
-                //if( (dist + this.startx) !== )
-                //dist = (dist > 250) ? 250 : dist;
-
-                console.log( dist )
                 dist = (  dist + 250 );
-                console.log( "dist" )
-                console.log( dist )
-
                 dist = ( dist < 0 ) ? 0 : dist;
                 dist = ( dist > 250 ) ? 250 : dist;
-
 
                 this.$pageWrap.css({
                     "-webkit-transform" :   "translate3D(" + dist + "px, 0, 0)",
@@ -208,13 +187,6 @@
             this.$body.removeClass('ffrm-is-moving');
             this.$pageWrap.removeClass('no-transition');
 
-            console.log('touchend')
-
-            console.log("Distance: " + absDist);
-            //console.log("Time: " + this.time);
-            //console.log("speed: " + speed);
-            //console.log("clientX: " + touchobj.clientX);
-
             this.setMenuTransition( speed, "ease-out" );
 
             // close it
@@ -252,7 +224,6 @@
             });
         },
         setOverlayTransparency: function( distance ) {
-            //console.log("distance: " + distance);
 
             if( this.isOpen && distance > 0 ) {
                 distance = 0;
@@ -261,12 +232,7 @@
             }
 
             distance = (distance > this.settings.menuWidth) ? this.settings.menuWidth : distance;
-
-            //console.log("distance: " + distance);
-
             var opacity = (this.settings.overlayOpacity / ( this.settings.menuWidth / distance ));
-
-            //console.log("opacity: " + opacity);
 
             if( this.isOpen ) {
                 opacity = this.settings.overlayOpacity - opacity;
