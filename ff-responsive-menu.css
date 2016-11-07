@@ -43,23 +43,39 @@ body.noscroll{
 .ffrm-page-wrapper {
   -webkit-transition-property: transform;
   -moz-transition-property: transform;
+  -o-transition-property: transform;
   transition-property: transform;
 
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
 body.ffrm-open:not(.ffrm-is-moving) .ffrm-page-wrapper {
+  -webkit-transform: translate3D(250px, 0, 0) !important;
+  -moz-transform: translate3D(250px, 0, 0) !important;
+  -o-transform: translate3D(250px, 0, 0) !important;
   transform: translate3D(250px, 0, 0) !important;
 }
 body.ffrm-closed:not(.ffrm-is-moving) .ffrm-page-wrapper,
 body.ffrm-open:not(.ffrm-is-moving) #ffrm-menu {
+  -webkit-transform: translate3D(0, 0, 0) !important;
+  -moz-transform: translate3D(0, 0, 0) !important;
+  -o-transform: translate3D(0, 0, 0) !important;
   transform: translate3D(0, 0, 0) !important;
 }
 body.ffrm-closed:not(.ffrm-is-moving) #ffrm-menu {
+  -webkit-transform: translate3D(-250px, 0, 0) !important;
+  -moz-transform: translate3D(-250px, 0, 0) !important;
+  -o-transform: translate3D(-250px, 0, 0) !important;
   transform: translate3D(-250px, 0, 0) !important;
 }
 body.ffrm-open:not(.ffrm-is-moving) .ffrm-page-wrapper.ffrm-stay,
 body.ffrm-closed:not(.ffrm-is-moving) .ffrm-page-wrapper.ffrm-stay,
 body.ffrm-is-moving .ffrm-page-wrapper.ffrm-stay {
+  -webkit-transform: translate3D(0, 0, 0) !important;
+  -moz-transform: translate3D(0, 0, 0) !important;
+  -o-transform: translate3D(0, 0, 0) !important;
   transform: translate3D(0, 0, 0) !important;
 }
 .ffrm-overlay {
@@ -73,6 +89,7 @@ body.ffrm-is-moving .ffrm-page-wrapper.ffrm-stay {
   opacity: 0;
   -webkit-transition: opacity .15s ease-in;
   -moz-transition: opacity .15s ease-in;
+  -o-transition: opacity .15s ease-in;
   transition: opacity .15s ease-in;
 }
 body.ffrm-is-moving .ffrm-overlay {
@@ -89,10 +106,13 @@ body.ffrm-is-moving .ffrm-overlay {
   left: 0;
   top: 0;
   /*background: rgba(255,0,0,0.5);*/
-  z-index: 9;
+  z-index: 1;
 }
 body.ffrm-open .ffrm-swipe-trigger {
-  transform: translate3D(250px, 0, 0);
+  -webkit-transform: translate3D(250px, 0, 0) !important;
+  -moz-transform: translate3D(250px, 0, 0) !important;
+  -o-transform: translate3D(250px, 0, 0) !important;
+  transform: translate3D(250px, 0, 0) !important;
   width: 10000px;
 }
 

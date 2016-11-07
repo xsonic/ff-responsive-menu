@@ -4,14 +4,17 @@
 
     var ffResponsiveMenu = "ffResponsiveMenu",
         defaults = {
-            pageWrapSelector:       ".ffrm-page-wrapper",
-            menuBtnSelector:        ".ffrm-hamburger",
-            swipeTriggerSelector:   ".ffrm-swipe-trigger",
-            overlaySelector:        ".ffrm-overlay",
-            menuBtnActiveClass:     "is-active",
-            menuSpeed:              .3,
-            menuWidth:              250,
-            overlayOpacity:         0.8
+            pageWrapSelector:       ".ffrm-page-wrapper",       // CSS selector (class or id) for the content wrapper (part of the page that moves)
+            menuBtnSelector:        ".ffrm-hamburger",          // CSS selector (class or id) for the Menu button (FFRM won't add a button
+            swipeTriggerSelector:   ".ffrm-swipe-trigger",      // CSS selector (class or id) for the invisible element, initially placed on the very edge, used to catch the touch events
+            overlaySelector:        ".ffrm-overlay",            // CSS selector (class or id) for the content overlay
+            menuBtnActiveClass:     "is-active",                // CSS class that's gets added to the menubutton when the menu is open
+            menuSpeed:              .3,                         // the animation speed of the menu
+            menuWidth:              250,                        // the width of the menu (must also be set in the CSS)
+            overlayOpacity:         0.8,                        // opacity of the content overlay
+            overlayContent:         true,                       // add overlay when menu is open
+            overlayClose:           true,                       // close the menu by clicking on the overlay
+            gestures:               true,                       // enable edge swiping to open the menu
         };
 
 
@@ -24,12 +27,12 @@
         this.menuSpeed = this.menuSpeed / 1000;
 
         // elements
+        this.menu = element;
+
+        this.$menu = $(element);
         this.$body = $("body");
         this.$overlay = $('<div class="' + this.settings.overlaySelector.replace(".","") + '" />');
         this.$swipeTrigger = $('<div class="' + this.settings.swipeTriggerSelector.replace(".","") + '" />');
-
-        this.menu = element;
-        this.$menu = $(element);
         this.$pageWrap = $(this.settings.pageWrapSelector);
         this.$menuBtn = $(this.settings.menuBtnSelector);
 
@@ -50,8 +53,9 @@
             this.$body.addClass('ffrm-closed');
         },
         addHtmlMarkup: function( text ) {
+            if( this.settings.overlayContent )
+                this.$body.append( this.$overlay );
             this.$body.append( this.$swipeTrigger );
-            this.$body.append( this.$overlay );
         },
         bindEvents: function() {
             var self = this;
@@ -63,17 +67,26 @@
                 e.preventDefault();
                 self.setMenuTransition( self.settings.menuSpeed, "ease-in" );
             });
-            $(document).on('touchstart', this.settings.swipeTriggerSelector, function( e ) {
-                e.preventDefault();
-                self.onTouchStart( e );
+            if( this.settings.gestures ) {
+                $(document).on('touchstart', this.settings.swipeTriggerSelector, function( e ) {
+                    e.preventDefault();
+                    self.onTouchStart( e );
+                });
+                $(document).on('touchmove', this.settings.swipeTriggerSelector, function( e ) {
+                    e.preventDefault();
+                    self.onTouchMove( e );
+                });
+                $(document).on('touchend', this.settings.swipeTriggerSelector, function( e ) {
+                    e.preventDefault();
+                    self.onTouchEnd( e );
+                });
+            }
+
+            $(document).on('ffrm:open', this.menu, function( e ) {
+                self.openMenu( self.settings.menuSpeed, "ease-in");
             });
-            $(document).on('touchmove', this.settings.swipeTriggerSelector, function( e ) {
-                e.preventDefault();
-                self.onTouchMove( e );
-            });
-            $(document).on('touchend', this.settings.swipeTriggerSelector, function( e ) {
-                e.preventDefault();
-                self.onTouchEnd( e );
+            $(document).on('ffrm:close', this.menu, function( e ) {
+                self.closeMenu( self.settings.menuSpeed, "ease-in");
             });
 
         },
@@ -206,7 +219,7 @@
             // close it
             if (this.isOpen) {
                 if (dist > 80 || dist == 0) {
-                    if( dist == 0) {
+                    if( dist == 0 && this.settings.overlayClose ) {
                         this.closeMenu( this.settings.menuSpeed, "ease-in");
                     } else {
                         this.closeMenu( speed );
