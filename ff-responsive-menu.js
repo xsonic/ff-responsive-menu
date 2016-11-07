@@ -74,9 +74,14 @@
                 e.preventDefault();
                 self.onTouchEnd( e );
             });
+
         },
         openMenu: function( speed, easing ) {
             var self = this;
+
+            $("body, html").css({
+                overflow: "hidden"
+            });
 
             this.setOverlayTransition( speed, "ease-out" );
             this.setOverlayTransparency( this.settings.menuWidth );
@@ -89,6 +94,9 @@
         closeMenu: function( speed, easing ) {
             var self = this;
 
+            $("body, html").css({
+                overflow: "auto"
+            });
             this.$body.toggleClass( "ffrm-open ffrm-closed" );
             this.isOpen = false;
             this.setOverlayTransition( speed, "ease-out" );

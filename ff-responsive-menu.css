@@ -23,7 +23,10 @@ body{
 }
 
 
-
+body.noscroll{
+  position:fixed;
+  overflow:hidden;
+}
 .ffrm-page-wrapper {
   position: relative;
 }
@@ -80,7 +83,7 @@ body.ffrm-is-moving .ffrm-overlay {
   height: 100%;
   left: 0;
   top: 0;
-  background: rgba(255,0,0,0.5);
+  /*background: rgba(255,0,0,0.5);*/
   z-index: 9;
 }
 body.ffrm-open .ffrm-swipe-trigger {
