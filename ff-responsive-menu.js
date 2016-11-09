@@ -109,7 +109,7 @@
             var self = this;
 
             $("body, html").css({
-                overflow: "auto"
+                overflowY: "auto"
             });
             this.$body.toggleClass( "ffrm-open ffrm-closed" );
             this.isOpen = false;

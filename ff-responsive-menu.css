@@ -16,12 +16,10 @@ body{
 
 
 
-
 #ffrm-menu {
   width: 250px;
   background: red;
 }
-
 
 body.noscroll{
   position:fixed;
@@ -36,6 +34,9 @@ body.noscroll{
   height: 100%;
   z-index: 2;
 
+  -webkit-transform: translate3D(-250px, 0, 0);
+  -moz-transform: translate3D(-250px, 0, 0);
+  -o-transform: translate3D(-250px, 0, 0);
   transform: translate3D(-250px, 0, 0);
 }
 
