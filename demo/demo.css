@@ -1,0 +1,62 @@
+body {
+	background: #F4F4F4;
+	color: #999;
+}
+.ffrm-page-wrapper {
+	padding: 4rem 1rem;
+}
+.hamburger {
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 2;
+	outline: 0;
+	opacity: 1 !important;
+}
+.hamburger:before {
+	content: "";
+	width: 100%;
+	height: 58px;
+	position: fixed;
+	background: #2C87B2;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+.hamburger-inner,
+.hamburger-inner:before,
+.hamburger-inner:after {
+	background: #FFF;
+}
+body.ffrm-open #ffrm-menu {
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+#ffrm-menu {
+	background: #253447;
+	width: 350px;
+}
+#menu-top {
+	padding: 3rem 2rem 1rem;
+	text-align: center;
+	background: #1C2939;
+}
+#menu-top img {
+	width: 120px;
+	border-radius: 100%;
+	border: 5px solid rgba(255, 255, 255, 0.2);
+	margin-bottom: .5rem;
+}
+ul#menu {
+	padding: 1rem 2.5rem;
+}
+ul#menu li {
+	list-style-type: none;
+}
+ul#menu a {
+	border-bottom: 1px solid #455360;
+	display: block;
+	padding: 1rem 0;
+	color: #2FABDFB3;
+	text-decoration: none;
+	text-transform: uppercase;
+}

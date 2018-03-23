@@ -1,0 +1,92 @@
+html {
+	overflow-x: hidden;
+	position: relative;
+}
+body {
+	overflow-x: hidden;
+	position: relative;
+}
+/*body.ffrm-noscroll {*/
+/*position: fixed;*/
+/*overflow: hidden;*/
+/*}*/
+.ffrm-page-wrapper {
+	position: relative;
+}
+#ffrm-menu {
+	position: fixed;
+	overflow-y: auto;
+	height: 100%;
+	z-index: 2;
+
+	-webkit-transform: translate3D(-350px, 0, 0);
+	-moz-transform: translate3D(-350px, 0, 0);
+	-o-transform: translate3D(-350px, 0, 0);
+	transform: translate3D(-350px, 0, 0);
+}
+.ffrm-page-wrapper {
+	-webkit-transition-property: transform;
+	-moz-transition-property: transform;
+	-o-transition-property: transform;
+	transition-property: transform;
+
+	-webkit-transition-timing-function: ease-in;
+	-moz-transition-timing-function: ease-in;
+	-o-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
+}
+body.ffrm-open.ffrm-move-content:not(.ffrm-is-moving) .ffrm-page-wrapper {
+	-webkit-transform: translate3D(350px, 0, 0) !important;
+	-moz-transform: translate3D(350px, 0, 0) !important;
+	-o-transform: translate3D(350px, 0, 0) !important;
+	transform: translate3D(350px, 0, 0) !important;
+}
+body.ffrm-closed.ffrm-move-content:not(.ffrm-is-moving) .ffrm-page-wrapper,
+body.ffrm-open:not(.ffrm-is-moving) #ffrm-menu {
+	-webkit-transform: translate3D(0, 0, 0) !important;
+	-moz-transform: translate3D(0, 0, 0) !important;
+	-o-transform: translate3D(0, 0, 0) !important;
+	transform: translate3D(0, 0, 0) !important;
+}
+body.ffrm-closed:not(.ffrm-is-moving) #ffrm-menu {
+	-webkit-transform: translate3D(-350px, 0, 0) !important;
+	-moz-transform: translate3D(-350px, 0, 0) !important;
+	-o-transform: translate3D(-350px, 0, 0) !important;
+	transform: translate3D(-350px, 0, 0) !important;
+}
+.ffrm-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	z-index: -1;
+	opacity: 0;
+	-webkit-transition: opacity .15s ease-in;
+	-moz-transition: opacity .15s ease-in;
+	-o-transition: opacity .15s ease-in;
+	transition: opacity .15s ease-in;
+}
+body.ffrm-is-moving .ffrm-overlay {
+	z-index: 1;
+}
+.ffrm-open .ffrm-overlay {
+	z-index: 1;
+	opacity: 1;
+}
+.ffrm-swipe-trigger {
+	position: fixed;
+	width: 30px;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+body.ffrm-open .ffrm-swipe-trigger {
+	/*-webkit-transform: translate3D(350px, 0, 0) !important;*/
+	/*-moz-transform: translate3D(350px, 0, 0) !important;*/
+	/*-o-transform: translate3D(350px, 0, 0) !important;*/
+	/*transform: translate3D(350px, 0, 0) !important;*/
+	width: 10000px;
+}
