@@ -19,10 +19,10 @@ body {
 	height: 100%;
 	z-index: 2;
 
-	-webkit-transform: translate3D(-350px, 0, 0);
-	-moz-transform: translate3D(-350px, 0, 0);
-	-o-transform: translate3D(-350px, 0, 0);
-	transform: translate3D(-350px, 0, 0);
+	-webkit-transform: translate3D(-250px, 0, 0);
+	-moz-transform: translate3D(-250px, 0, 0);
+	-o-transform: translate3D(-250px, 0, 0);
+	transform: translate3D(-250px, 0, 0);
 }
 .ffrm-page-wrapper {
 	-webkit-transition-property: transform;
@@ -36,10 +36,10 @@ body {
 	transition-timing-function: ease-in;
 }
 body.ffrm-open.ffrm-move-content:not(.ffrm-is-moving) .ffrm-page-wrapper {
-	-webkit-transform: translate3D(350px, 0, 0) !important;
-	-moz-transform: translate3D(350px, 0, 0) !important;
-	-o-transform: translate3D(350px, 0, 0) !important;
-	transform: translate3D(350px, 0, 0) !important;
+	-webkit-transform: translate3D(250px, 0, 0) !important;
+	-moz-transform: translate3D(250px, 0, 0) !important;
+	-o-transform: translate3D(250px, 0, 0) !important;
+	transform: translate3D(250px, 0, 0) !important;
 }
 body.ffrm-closed.ffrm-move-content:not(.ffrm-is-moving) .ffrm-page-wrapper,
 body.ffrm-open:not(.ffrm-is-moving) #ffrm-menu {
@@ -49,10 +49,10 @@ body.ffrm-open:not(.ffrm-is-moving) #ffrm-menu {
 	transform: translate3D(0, 0, 0) !important;
 }
 body.ffrm-closed:not(.ffrm-is-moving) #ffrm-menu {
-	-webkit-transform: translate3D(-350px, 0, 0) !important;
-	-moz-transform: translate3D(-350px, 0, 0) !important;
-	-o-transform: translate3D(-350px, 0, 0) !important;
-	transform: translate3D(-350px, 0, 0) !important;
+	-webkit-transform: translate3D(-250px, 0, 0) !important;
+	-moz-transform: translate3D(-250px, 0, 0) !important;
+	-o-transform: translate3D(-250px, 0, 0) !important;
+	transform: translate3D(-250px, 0, 0) !important;
 }
 .ffrm-overlay {
 	position: absolute;
@@ -84,9 +84,9 @@ body.ffrm-is-moving .ffrm-overlay {
 	z-index: 1;
 }
 body.ffrm-open .ffrm-swipe-trigger {
-	/*-webkit-transform: translate3D(350px, 0, 0) !important;*/
-	/*-moz-transform: translate3D(350px, 0, 0) !important;*/
-	/*-o-transform: translate3D(350px, 0, 0) !important;*/
-	/*transform: translate3D(350px, 0, 0) !important;*/
+	/*-webkit-transform: translate3D(250px, 0, 0) !important;*/
+	/*-moz-transform: translate3D(250px, 0, 0) !important;*/
+	/*-o-transform: translate3D(250px, 0, 0) !important;*/
+	/*transform: translate3D(250px, 0, 0) !important;*/
 	width: 10000px;
 }
