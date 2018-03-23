@@ -10,7 +10,7 @@
       overlaySelector: ".ffrm-overlay",                 // CSS selector (class or id) for the content overlay
       menuBtnActiveClass: "is-active",                  // CSS class that's gets added to the menubutton when the menu is open
       menuSpeed: .3,                                    // the animation speed of the menu
-      menuWidth: 250,                                   // the width of the menu (must also be set in the CSS)
+      menuWidth: 300,                                   // the width of the menu (must also be set in the CSS)
       overlayOpacity: 0.8,                              // opacity of the content overlay
       overlayContent: true,                             // add overlay when menu is open
       overlayClose: true,                               // close the menu by clicking on the overlay

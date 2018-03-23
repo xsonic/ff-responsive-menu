@@ -33,7 +33,6 @@ body.ffrm-open #ffrm-menu {
 }
 #ffrm-menu {
 	background: #253447;
-	width: 350px;
 }
 #menu-top {
 	padding: 3rem 2rem 1rem;
@@ -53,7 +52,7 @@ ul#menu li {
 	list-style-type: none;
 }
 ul#menu a {
-	border-bottom: 1px solid #455360;
+	/*border-bottom: 1px solid #455360;*/
 	display: block;
 	padding: 1rem 0;
 	color: #2FABDFB3;
