@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
 
     <!-- main CSS file -->
-    <link rel="stylesheet" href="../src/ff-responsive-menu.css">
+    <link rel="stylesheet" href="../src/ff-swipe-menu.css">
 
     <!-- demo CSS files -->
     <link rel="stylesheet" href="hamburgers.css">
@@ -22,12 +22,12 @@
 </head>
 <body>
 
-<button class="ffrm-hamburger hamburger hamburger--spin" type="button">
+<button class="ffsm-hamburger hamburger hamburger--spin" type="button">
     <span class="hamburger-box">
         <span class="hamburger-inner"></span>
     </span>
 </button>
-<div id="ffrm-menu">
+<div id="ffsm-menu">
     <div id="menu-top">
         <img src="img/profile.jpg">
         <h4>John Doe</h4>
@@ -54,7 +54,7 @@
         <li><a href="#">A menu link</a></li>
     </ul>
 </div>
-<div class="ffrm-page-wrapper">
+<div class="ffsm-page-wrapper">
     <h1>HTML Ipsum Presents FFMENU!!!!</h1>
     <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
         Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
@@ -83,26 +83,26 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-<script src="../src/ff-responsive-menu.js"></script>
+<script src="../src/ff-swipe-menu.js"></script>
 <script>
   $(document).ready(function() {
-    $('#ffrm-menu').ffResponsiveMenu({
+    $('#ffsm-menu').ffResponsiveMenu({
 //            gestures: false,
 //            menuSpeed:1
     });
 
-    $('#ffrm-menu').on('ffrm:onTouchStart', function(e) {
+    $('#ffsm-menu').on('ffsm:onTouchStart', function(e) {
       console.log(e)
     });
-    $('#ffrm-menu').on('ffrm:onTouchMove', function(e, dist) {
+    $('#ffsm-menu').on('ffsm:onTouchMove', function(e, dist) {
       console.log(e);
       console.log(dist);
     });
 
-//        pageWrapSelector:       ".ffrm-page-wrapper",       // CSS selector (class or id) for the content wrapper (part of the page that moves)
-//                menuBtnSelector:        ".ffrm-hamburger",          // CSS selector (class or id) for the Menu button (FFRM won't add a button
-//                swipeTriggerSelector:   ".ffrm-swipe-trigger",      // CSS selector (class or id) for the invisible element, initially placed on the very edge, used to catch the touch events
-//                overlaySelector:        ".ffrm-overlay",            // CSS selector (class or id) for the content overlay
+//        pageWrapSelector:       ".ffsm-page-wrapper",       // CSS selector (class or id) for the content wrapper (part of the page that moves)
+//                menuBtnSelector:        ".ffsm-hamburger",          // CSS selector (class or id) for the Menu button (ffsm won't add a button
+//                swipeTriggerSelector:   ".ffsm-swipe-trigger",      // CSS selector (class or id) for the invisible element, initially placed on the very edge, used to catch the touch events
+//                overlaySelector:        ".ffsm-overlay",            // CSS selector (class or id) for the content overlay
 //                menuBtnActiveClass:     "is-active",                // CSS class that's gets added to the menubutton when the menu is open
 //                menuSpeed:              .3,                         // the animation speed of the menu
 //                menuWidth:              250,                        // the width of the menu (must also be set in the CSS)
@@ -113,10 +113,10 @@
 
 
 //        setTimeout(function() {
-//            $('#ffrm-menu').trigger( 'ffrm:open' )
+//            $('#ffsm-menu').trigger( 'ffsm:open' )
 //        }, 2000);
 //        setTimeout(function() {
-//            $('#ffrm-menu').trigger( 'ffrm:close' )
+//            $('#ffsm-menu').trigger( 'ffsm:close' )
 //        }, 4000);
 
   });

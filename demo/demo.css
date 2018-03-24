@@ -2,7 +2,7 @@ body {
 	background: #F4F4F4;
 	color: #999;
 }
-.ffrm-page-wrapper {
+.ffsm-page-wrapper {
 	padding: 4rem 1rem;
 }
 .hamburger {
@@ -28,10 +28,10 @@ body {
 .hamburger-inner:after {
 	background: #FFF;
 }
-body.ffrm-open #ffrm-menu {
+body.ffsm-open #ffsm-menu {
 	box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
-#ffrm-menu {
+#ffsm-menu {
 	background: #253447;
 }
 #menu-top {

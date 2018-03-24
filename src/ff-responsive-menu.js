@@ -4,10 +4,10 @@
 
   const ffResponsiveMenu = "ffResponsiveMenu",
     defaults = {
-      pageWrapSelector: ".ffrm-page-wrapper",           // CSS selector (class or id) for the content wrapper (part of the page that moves)
-      menuBtnSelector: ".ffrm-hamburger",               // CSS selector (class or id) for the Menu button (FFRM won't add a button
-      swipeTriggerSelector: ".ffrm-swipe-trigger",      // CSS selector (class or id) for the invisible element, initially placed on the very edge, used to catch the touch events
-      overlaySelector: ".ffrm-overlay",                 // CSS selector (class or id) for the content overlay
+      pageWrapSelector: ".ffsm-page-wrapper",           // CSS selector (class or id) for the content wrapper (part of the page that moves)
+      menuBtnSelector: ".ffsm-hamburger",               // CSS selector (class or id) for the Menu button (ffsm won't add a button
+      swipeTriggerSelector: ".ffsm-swipe-trigger",      // CSS selector (class or id) for the invisible element, initially placed on the very edge, used to catch the touch events
+      overlaySelector: ".ffsm-overlay",                 // CSS selector (class or id) for the content overlay
       menuBtnActiveClass: "is-active",                  // CSS class that's gets added to the menubutton when the menu is open
       menuSpeed: .3,                                    // the animation speed of the menu
       menuWidth: 300,                                   // the width of the menu (must also be set in the CSS)
@@ -48,9 +48,9 @@
     init: function() {
       this.addHtmlMarkup();
       this.bindEvents();
-      this.$body.addClass('ffrm-closed');
+      this.$body.addClass('ffsm-closed');
       if (this.settings.moveContent)
-        this.$body.addClass('ffrm-move-content');
+        this.$body.addClass('ffsm-move-content');
     },
     addHtmlMarkup: function() {
       if (this.settings.overlayContent)
@@ -82,10 +82,10 @@
         });
       }
 
-      $(document).on('ffrm:open', this.menu, function() {
+      $(document).on('ffsm:open', this.menu, function() {
         self.openMenu(self.settings.menuSpeed, "ease-in");
       });
-      $(document).on('ffrm:close', this.menu, function() {
+      $(document).on('ffsm:close', this.menu, function() {
         self.closeMenu(self.settings.menuSpeed, "ease-in");
       });
 
@@ -97,7 +97,7 @@
 
       this.setOverlayTransition(speed, "ease-out");
       this.setOverlayTransparency(this.settings.menuWidth);
-      this.$body.toggleClass("ffrm-open ffrm-closed");
+      this.$body.toggleClass("ffsm-open ffsm-closed");
       this.isOpen = true;
       this.toggleMenuBtnClass();
       this.setMenuTransition(speed, easing);
@@ -107,7 +107,7 @@
       $("body, html").css({
         overflowY: "auto"
       });
-      this.$body.toggleClass("ffrm-open ffrm-closed");
+      this.$body.toggleClass("ffsm-open ffsm-closed");
       this.isOpen = false;
       this.setOverlayTransition(speed, "ease-out");
       this.setOverlayTransparency(0);
@@ -115,7 +115,7 @@
       this.setMenuTransition((speed), easing);
 
       setTimeout(function() {
-        self.$body.removeClass("ffrm-is-moving");
+        self.$body.removeClass("ffsm-is-moving");
       }, speed);
     },
     onMenuBtnClick: function() {
@@ -152,7 +152,7 @@
         });
       }
 
-      this.$menu.trigger('ffrm:onTouchStart', e);
+      this.$menu.trigger('ffsm:onTouchStart', e);
     },
     onTouchMove: function(e) {
       const touchObj = e.originalEvent.changedTouches[0]; // reference first touch point for this event
@@ -161,7 +161,7 @@
       this.endtime = d.getTime();
 
       this.$pageWrap.addClass('no-transition');
-      this.$body.addClass('ffrm-is-moving');
+      this.$body.addClass('ffsm-is-moving');
 
       this.setOverlayTransition(0, "linear");
       this.setOverlayTransparency(dist);
@@ -203,7 +203,7 @@
         });
       }
 
-      this.$menu.trigger('ffrm:onTouchMove', [dist]);
+      this.$menu.trigger('ffsm:onTouchMove', [dist]);
     },
     onTouchEnd: function(e) {
       const touchObj = e.originalEvent.changedTouches[0]; // reference first touch point for this event
@@ -213,7 +213,7 @@
       let speed = (time / absDist) / 10;
       speed = (speed > .5) ? .5 : speed;
 
-      this.$body.removeClass('ffrm-is-moving');
+      this.$body.removeClass('ffsm-is-moving');
       this.$pageWrap.removeClass('no-transition');
 
       this.setMenuTransition(speed, "ease-out");
@@ -240,7 +240,7 @@
         }
       }
 
-      this.$menu.trigger('ffrm:onTouchEnd', e, dist, speed);
+      this.$menu.trigger('ffsm:onTouchEnd', e, dist, speed);
     },
     setMenuTransition: function(time, easing) {
       this.$pageWrap.add(this.menu).css({

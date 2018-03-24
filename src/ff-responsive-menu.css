@@ -6,14 +6,14 @@ body {
 	overflow-x: hidden;
 	position: relative;
 }
-/*body.ffrm-noscroll {*/
+/*body.ffsm-noscroll {*/
 /*position: fixed;*/
 /*overflow: hidden;*/
 /*}*/
-.ffrm-page-wrapper {
+.ffsm-page-wrapper {
 	position: relative;
 }
-#ffrm-menu {
+#ffsm-menu {
 	width: 300px;
 	position: fixed;
 	overflow-y: auto;
@@ -25,7 +25,7 @@ body {
 	-o-transform: translate3D(-300px, 0, 0);
 	transform: translate3D(-300px, 0, 0);
 }
-.ffrm-page-wrapper {
+.ffsm-page-wrapper {
 	-webkit-transition-property: transform;
 	-moz-transition-property: transform;
 	-o-transition-property: transform;
@@ -36,26 +36,26 @@ body {
 	-o-transition-timing-function: ease-in;
 	transition-timing-function: ease-in;
 }
-body.ffrm-open.ffrm-move-content:not(.ffrm-is-moving) .ffrm-page-wrapper {
+body.ffsm-open.ffsm-move-content:not(.ffsm-is-moving) .ffsm-page-wrapper {
 	-webkit-transform: translate3D(300px, 0, 0) !important;
 	-moz-transform: translate3D(300px, 0, 0) !important;
 	-o-transform: translate3D(300px, 0, 0) !important;
 	transform: translate3D(300px, 0, 0) !important;
 }
-body.ffrm-closed.ffrm-move-content:not(.ffrm-is-moving) .ffrm-page-wrapper,
-body.ffrm-open:not(.ffrm-is-moving) #ffrm-menu {
+body.ffsm-closed.ffsm-move-content:not(.ffsm-is-moving) .ffsm-page-wrapper,
+body.ffsm-open:not(.ffsm-is-moving) #ffsm-menu {
 	-webkit-transform: translate3D(0, 0, 0) !important;
 	-moz-transform: translate3D(0, 0, 0) !important;
 	-o-transform: translate3D(0, 0, 0) !important;
 	transform: translate3D(0, 0, 0) !important;
 }
-body.ffrm-closed:not(.ffrm-is-moving) #ffrm-menu {
+body.ffsm-closed:not(.ffsm-is-moving) #ffsm-menu {
 	-webkit-transform: translate3D(-300px, 0, 0) !important;
 	-moz-transform: translate3D(-300px, 0, 0) !important;
 	-o-transform: translate3D(-300px, 0, 0) !important;
 	transform: translate3D(-300px, 0, 0) !important;
 }
-.ffrm-overlay {
+.ffsm-overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -69,14 +69,14 @@ body.ffrm-closed:not(.ffrm-is-moving) #ffrm-menu {
 	-o-transition: opacity .15s ease-in;
 	transition: opacity .15s ease-in;
 }
-body.ffrm-is-moving .ffrm-overlay {
+body.ffsm-is-moving .ffsm-overlay {
 	z-index: 1;
 }
-.ffrm-open .ffrm-overlay {
+.ffsm-open .ffsm-overlay {
 	z-index: 1;
 	opacity: 1;
 }
-.ffrm-swipe-trigger {
+.ffsm-swipe-trigger {
 	position: fixed;
 	width: 30px;
 	height: 100%;
@@ -84,7 +84,7 @@ body.ffrm-is-moving .ffrm-overlay {
 	top: 0;
 	z-index: 1;
 }
-body.ffrm-open .ffrm-swipe-trigger {
+body.ffsm-open .ffsm-swipe-trigger {
 	/*-webkit-transform: translate3D(300px, 0, 0) !important;*/
 	/*-moz-transform: translate3D(300px, 0, 0) !important;*/
 	/*-o-transform: translate3D(300px, 0, 0) !important;*/
